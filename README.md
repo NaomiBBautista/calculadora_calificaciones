@@ -1,33 +1,34 @@
 # calculadora_calificaciones
-Desarrollo de una aplicación móvil utilizando .NET Multi-platform App UI (.NET MAUI)
+Desarrollo de una aplicación móvil utilizando .NET Multi-platform App UI (.NET MAUI).
 ## VISTA
-La aplicación tendrá tres páginas
-#### INICIO 
-Página de portada con libre diseño donde se usen imágenes, fuentes externas y fondo degradado.
+La aplicación tendrá tres páginas, cada una deberá tener al menos una imagen y una fuente externa.
 
-#### MATERIA 
+#### * INICIO 
+Página de portada con diseño libre, donde se utilicen imágenes, fuentes externas y un fondo degradado.
+
+#### * MATERIA 
 Página para calcular la calificación de una materia, siguiendo las siguientes especificaciones:
-* Solicitar nombre de la materia
-* Solicitar tres rubros a calificar, como por ejemplo: *asistencia, tareas, examen*.
-* Solicitar el valor para cada rubro, validando que los números ingresados sean del 1-100, además de que la suma de estos sea == 100.
-* Solicitar calificación para cada rubro, validando que los números ingresados sean del 1-10.
-* Mostrar al usuario la calificación final de la materia, validando que esta se encuentre en un rango etre 1-10.
+* Solicitar el nombre de la materia.
+* Solicitar tres rubros a calificar, como por ejemplo: asistencia, tareas, examen.
+* Solicitar el valor para cada rubro, validando que los números ingresados sean del 1 al 100, además de que la suma de estos sea igual a 100.
+* Solicitar la calificación para cada rubro, validando que los números ingresados sean del 1 al 10.
+* Mostrar al usuario la calificación final de la materia, validando que esta se encuentre en un rango entre 1 y 10.
   
 #### SEMESTRE
 Página para calcular la calificación del semestre de una materia, con los siguientes requerimientos:
-* Solicitar nombre de la materia.
-* Solicitar el valor para cada parcial, considerando tres parciales y verificando que los números ingresados sean del 1-100, además de que la suma de estos sea == 100.
-* Solicitar calificación para los dos primeros parciales, verificando ue los números ingresados sean del 1-10.
+* Solicitar el nombre de la materia.
+* Solicitar el valor para cada parcial, considerando tres parciales y verificando que los números ingresados sean del 1 al 100, además de que la suma de estos sea igual a 100.
+* Solicitar la calificación para los dos primeros parciales, verificando que los números ingresados sean del 1 al 10.
 * Mostrar al usuario la calificación que necesita para sacar 6 y la que necesita para sacar 10.
-* Si todavía puede sacar 10 se muestra mensaje de aliento, de lo contrario, se muestra otro mensaje de consolación.
-
+* Si todavía puede sacar 10, mostrar un mensaje de aliento; de lo contrario, mostrar un mensaje de consolación.
+  
 ## FUNCIONALIDAD
 La aplicación debe contar con las siguientes especificaciones:
-* Usar el patrón de diseño `MVVM`.
-* Navegación entre paginas `TabbedPage`.
+* Usar el patrón de diseño MVVM.
+* Navegación entre páginas utilizando TabbedPage.
 
 ## Capturas de Pantalla
-A continuación se mostrarán capturas de pantalla del resultado final, y un ejemplo al utilizarse:
+A continuación, se mostrarán capturas de pantalla del resultado final y un ejemplo de uso:
 
 **INICIO**
 
