@@ -14,8 +14,6 @@ Página de portada con diseño libre, donde se utilicen imágenes, fuentes exter
 
 ![Página de inicio](imagenes/inicio.png)
 
-![Página de inicio](imagenes/inicio_ejemplo.png)
-
 
 #### * MATERIA 
 Página para calcular la calificación de una materia, siguiendo las siguientes especificaciones:
