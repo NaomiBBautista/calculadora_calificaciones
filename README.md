@@ -12,7 +12,9 @@ La aplicación tendrá tres páginas, cada una deberá tener al menos una imagen
 #### * INICIO 
 Página de portada con diseño libre, donde se utilicen imágenes, fuentes externas y un fondo degradado.
 
-![Página de inicio](imagenes/inicio.png)
+<div align="center">
+    <img src="imagenes/inicio.png" alt="Página de inicio" />
+</div>
 
 
 #### * MATERIA 
