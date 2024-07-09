@@ -9,7 +9,7 @@ La aplicación debe contar con las siguientes especificaciones:
 ## VISTA
 La aplicación tendrá tres páginas, cada una deberá tener al menos una imagen y una fuente externa.
 
-#### * INICIO 
+### INICIO 
 Página de portada con diseño libre, donde se utilicen imágenes, fuentes externas y un fondo degradado.
 
 <div align="center">
@@ -17,7 +17,7 @@ Página de portada con diseño libre, donde se utilicen imágenes, fuentes exter
 </div>
 
 
-#### * MATERIA 
+### MATERIA 
 Página para calcular la calificación de una materia, siguiendo las siguientes especificaciones:
 * Solicitar el nombre de la materia.
 * Solicitar tres rubros a calificar, como por ejemplo: asistencia, tareas, examen.
@@ -29,12 +29,13 @@ Página para calcular la calificación de una materia, siguiendo las siguientes 
     <img src="imagenes/materia.png" alt="Página de materia" />
 </div>
 
+##### Ejemplo de uso:
 <div align="center">
     <img src="imagenes/materia_ejemplo.png" alt="Página de materia" />
 </div>
 
   
-#### SEMESTRE
+### SEMESTRE
 Página para calcular la calificación del semestre de una materia, con los siguientes requerimientos:
 * Solicitar el nombre de la materia.
 * Solicitar el valor para cada parcial, considerando tres parciales y verificando que los números ingresados sean del 1 al 100, además de que la suma de estos sea igual a 100.
@@ -46,6 +47,7 @@ Página para calcular la calificación del semestre de una materia, con los sigu
     <img src="imagenes/semestre.png" alt="Página de semestre" />
 </div>
 
+##### Ejemplo de uso:
 <div align="center">
     <img src="imagenes/semestre.png" alt="Página de semestre" />
 </div>
