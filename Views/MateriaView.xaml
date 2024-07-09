@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TDMPW_3P_EX.ViewModels"
+             x:Class="TDMPW_3P_EX.Views.MateriaView"
+             BarBackgroundColor="White"
+             BarTextColor="#002a32"
+             UnselectedTabColor="#c80036" 
+             SelectedTabColor="#c80036">
+    
+    <!-- Colores
+    Blanco: #FFF5E1
+    Rosa: #FF6969
+    Rojo: #C80036
+    Azul Claro: #2b0098
+    Azul: #0C1844
+    Verde Claro: #005d67
+    Verde Fuerte: #002a32
+    Cambiar NavigationPage, Page-->
+
+    <!-- INICIO -->
+    <ContentPage
+        Title="INICIO" 
+        IconImageSource="inicio.png">
+
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="White"/>
+                    <GradientStop Offset="0.50" Color="#ff6969"/>
+                    <GradientStop Offset="0.75" Color="#e2324e"/>
+                    <GradientStop Offset="1" Color="#d51942"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid Margin="25" RowDefinitions=".25*,.25*,.25*">
+
+                <Frame 
+                        Grid.Row="0" Grid.RowSpan="2"
+                        Margin="10,40,10,10" 
+                        CornerRadius="150" 
+                        BackgroundColor="White" 
+                        Opacity="0.4"
+                        HeightRequest="300" 
+                        WidthRequest="300" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        IsClippedToBounds="True">
+
+                    <BoxView BackgroundColor="White"/>
+
+                </Frame>
+                
+                <Image 
+                    Grid.Row="0" Grid.RowSpan="2"
+                    Source="img1.png"
+                    Aspect="Fill" 
+                    Margin="10,40,10,10" 
+                    HeightRequest="250" 
+                    WidthRequest="250" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+
+                <Label
+                    Grid.Row="2"
+                    Text="¡BIENVENIDO!"
+                    FontFamily="PieHeight"
+                    FontSize="50"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    VerticalOptions="Start"/>
+            </Grid>
+        </Grid>
+    </ContentPage>
+
+    <!-- MATERIA -->
+    <ContentPage
+        Title="MATERIA" 
+        IconImageSource="cuaderno.png">
+
+        <ContentPage.BindingContext>
+            <vm:MateriaViewModel />
+        </ContentPage.BindingContext>
+
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="White"/>
+                    <GradientStop Offset="0.50" Color="#ff6969"/>
+                    <GradientStop Offset="0.75" Color="#e2324e"/>
+                    <GradientStop Offset="1" Color="#d51942"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid Margin="25" 
+                  RowDefinitions=".15*,.35*,.55*,.15*">
+                <!-- MATERIA -->
+                <Entry
+                    Grid.Row="0"
+                    Text="{Binding Materia.Nombre}"
+                    FontSize="35" 
+                    FontFamily="PieHeight" 
+                    FontAttributes="Bold" 
+                    TextColor="#002a32"
+                    Placeholder="Materia" 
+                    PlaceholderColor="#002a32"
+                    HorizontalTextAlignment="Center" 
+                    HorizontalOptions="Center"  
+                    VerticalOptions="Start" 
+                    WidthRequest="250"
+                    TextChanged="nomMateriaChanged"/>
+
+                <!-- RUBROS -->
+                <Grid Grid.Row="1"
+                    RowDefinitions="0.33*, .33*, .33*"
+                    ColumnDefinitions="0.50*, 0.50*">
+                    <!-- Imagen-->
+                    <Frame 
+                        Grid.Row="0" Grid.RowSpan="3"
+                        Grid.Column="1"
+                        CornerRadius="30" 
+                        BackgroundColor="White" 
+                        Opacity="0.4"
+                        HeightRequest="200" 
+                        WidthRequest="150" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        IsClippedToBounds="True"
+                        Margin="10">
+
+                        <BoxView BackgroundColor="White"/>
+
+                    </Frame>
+
+                    <Image 
+                        Grid.Row="0" Grid.RowSpan="3"
+                        Grid.Column="1"
+                        Source="img3.png"
+                        Aspect="Fill"  
+                        HeightRequest="170" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"/>
+
+                    <!-- Rubro 1 -->
+                    <Frame 
+                        Grid.Row="0" Grid.Column="0"
+                        Margin="10" 
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="60" 
+                        WidthRequest="170" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        IsClippedToBounds="True">
+
+                    </Frame>
+
+                    <Entry Grid.Row="0" Grid.Column="0"
+                        Text="{Binding Materia.Rubros[0].Nombre}"
+                        TextColor="#002a32"
+                        FontSize="20" 
+                        FontFamily="OpenSansSemibold"
+                        FontAttributes="Bold"
+                        Placeholder="Rubro 1"
+                        PlaceholderColor="#ff6969"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="140"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        TextChanged="nomR1Changed"/>
+
+                    <!-- Rubro 2 -->
+                    <Frame 
+                        Grid.Row="1" Grid.Column="0"
+                        Margin="10" 
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="60" 
+                        WidthRequest="170" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        IsClippedToBounds="True">
+
+                    </Frame>
+
+                    <Entry Grid.Row="1" Grid.Column="0"
+                        Text="{Binding Materia.Rubros[1].Nombre}"
+                        TextColor="#002a32"
+                        FontSize="20" 
+                        FontFamily="OpenSansSemibold"
+                        FontAttributes="Bold"
+                        Placeholder="Rubro 2"
+                        PlaceholderColor="#ff6969"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="140"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        TextChanged="nomR2Changed"/>
+
+                    <!-- Rubro 3 -->
+                    <Frame 
+                        Grid.Row="2" Grid.Column="0"
+                        Margin="10" 
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="60" 
+                        WidthRequest="170" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        IsClippedToBounds="True">
+
+                    </Frame>
+
+                    <Entry Grid.Row="2" Grid.Column="0"
+                        Text="{Binding Materia.Rubros[2].Nombre}"
+                        TextColor="#002a32"
+                        FontSize="20" 
+                        FontFamily="OpenSansSemibold"
+                        FontAttributes="Bold"
+                        Placeholder="Rubro 3"
+                        PlaceholderColor="#ff6969"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="140"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        TextChanged="nomR3Changed"/>
+                </Grid>
+
+                <!-- CALIFICACIONES -->
+                <Grid Grid.Row="2"
+                    RowDefinitions=".25*,.15*,.15*,.15*,.15*,.25*"
+                    ColumnDefinitions=".50*,.50*">
+
+                    <!-- RUBRO 1 -->
+                    <!-- Nombre Rubro 1 -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding Materia.Rubros[0].Nombre}"
+                        TextColor="White"
+                        FontSize="25"
+                        FontFamily="CaviarBold"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="End"
+                        HorizontalOptions="Center"
+                        WidthRequest="170"
+                        HeightRequest="30"
+                        Margin="10,20,10,5"/>
+
+                    <!-- Valor Rubro 1 -->
+                    <Frame 
+                        Grid.Row="1" 
+                        Grid.Column="0"
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="45" 
+                        WidthRequest="120" 
+                        HorizontalOptions="End" 
+                        VerticalOptions="Start" 
+                        IsClippedToBounds="True"
+                        Margin="10,0">
+                    </Frame>
+
+                    <Entry 
+                        Grid.Row="1" 
+                        Grid.Column="0"
+                        Text="{Binding Materia.Rubros[0].Valor}"
+                        TextColor="#002a32"
+                        FontSize="15" 
+                        FontFamily="OpenSans"
+                        FontAttributes="Bold"
+                        Placeholder="Valor"
+                        PlaceholderColor="White"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="70"
+                        HorizontalOptions="End" 
+                        VerticalOptions="Start" 
+                        TextChanged="vaR1Changed"
+                        Margin="35,0"/>
+
+                    <!-- Calificación Rubro 1 -->
+                    <Frame 
+                        Grid.Row="1" 
+                        Grid.Column="2"
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="45" 
+                        WidthRequest="120" 
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Start" 
+                        IsClippedToBounds="True"
+                        Margin="10,0">
+                    </Frame>
+
+                    <Entry 
+                        Grid.Row="1" 
+                        Grid.Column="1"
+                        Text="{Binding Materia.Rubros[0].Calificacion}"
+                        TextColor="#002a32"
+                        FontSize="15" 
+                        FontFamily="OpenSans"
+                        FontAttributes="Bold"
+                        Placeholder="Cal"
+                        PlaceholderColor="White"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="70"
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Start" 
+                        TextChanged="calR1Changed"
+                        Margin="35,0"/>
+
+
+                    <!-- RUBRO 2 -->
+                    <!-- Nombre Rubro 2 -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding Materia.Rubros[1].Nombre}"
+                        TextColor="White"
+                        FontSize="25"
+                        FontFamily="CaviarBold"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="End"
+                        HorizontalOptions="Center"
+                        WidthRequest="170"
+                        HeightRequest="30"
+                        Margin="10,10,10,5"/>
+
+                    <!-- Valor Rubro 1 -->
+                    <Frame 
+                        Grid.Row="3" 
+                        Grid.Column="0"
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="45" 
+                        WidthRequest="120" 
+                        HorizontalOptions="End" 
+                        VerticalOptions="Start" 
+                        IsClippedToBounds="True"
+                        Margin="10,0">
+                    </Frame>
+
+                    <Entry 
+                        Grid.Row="3" 
+                        Grid.Column="0"
+                        Text="{Binding Materia.Rubros[1].Valor}"
+                        TextColor="#002a32"
+                        FontSize="15" 
+                        FontFamily="OpenSans"
+                        FontAttributes="Bold"
+                        Placeholder="Valor"
+                        PlaceholderColor="White"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="70"
+                        HorizontalOptions="End" 
+                        VerticalOptions="Start" 
+                        TextChanged="vaR2Changed"
+                        Margin="35,0"/>
+
+                    <!-- Calificación Rubro 2 -->
+                    <Frame 
+                        Grid.Row="3" 
+                        Grid.Column="2"
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="45" 
+                        WidthRequest="120" 
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Start" 
+                        IsClippedToBounds="True"
+                        Margin="10,0">
+                    </Frame>
+
+                    <Entry 
+                        Grid.Row="3" 
+                        Grid.Column="1"
+                        Text="{Binding Materia.Rubros[1].Calificacion}"
+                        TextColor="#002a32"
+                        FontSize="15" 
+                        FontFamily="OpenSans"
+                        FontAttributes="Bold"
+                        Placeholder="Cal"
+                        PlaceholderColor="White"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="70"
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Start" 
+                        TextChanged="calR2Changed"
+                        Margin="35,0"/>
+
+                    <!-- RUBRO 3 -->
+                    <!-- Nombre Rubro 3 -->
+                    <Label
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding Materia.Rubros[2].Nombre}"
+                        TextColor="White"
+                        FontSize="25"
+                        FontFamily="CaviarBold"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="End"
+                        HorizontalOptions="Center"
+                        WidthRequest="170"
+                        HeightRequest="30"
+                        Margin="10,10,10,5"/>
+
+                    <!-- Valor Rubro 1 -->
+                    <Frame 
+                        Grid.Row="5" 
+                        Grid.Column="0"
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="45" 
+                        WidthRequest="120" 
+                        HorizontalOptions="End" 
+                        VerticalOptions="Start" 
+                        IsClippedToBounds="True"
+                        Margin="10,0">
+                    </Frame>
+
+                    <Entry 
+                        Grid.Row="5" 
+                        Grid.Column="0"
+                        Text="{Binding Materia.Rubros[2].Valor}"
+                        TextColor="#002a32"
+                        FontSize="15" 
+                        FontFamily="OpenSans"
+                        FontAttributes="Bold"
+                        Placeholder="Valor"
+                        PlaceholderColor="White"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="70"
+                        HorizontalOptions="End" 
+                        VerticalOptions="Start" 
+                        TextChanged="vaR3Changed"
+                        Margin="35,0"/>
+
+                    <!-- Calificación Rubro 3 -->
+                    <Frame 
+                        Grid.Row="5" 
+                        Grid.Column="2"
+                        CornerRadius="20"
+                        Opacity="0.3"
+                        HeightRequest="45" 
+                        WidthRequest="120" 
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Start" 
+                        IsClippedToBounds="True"
+                        Margin="10,0">
+                    </Frame>
+
+                    <Entry 
+                        Grid.Row="5" 
+                        Grid.Column="1"
+                        Text="{Binding Materia.Rubros[2].Calificacion}"
+                        TextColor="#002a32"
+                        FontSize="15" 
+                        FontFamily="OpenSans"
+                        FontAttributes="Bold"
+                        Placeholder="Cal"
+                        PlaceholderColor="White"  
+                        HorizontalTextAlignment="Center"
+                        WidthRequest="70"
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Start" 
+                        TextChanged="calR3Changed"
+                        Margin="35,0"/>
+                </Grid>
+
+                <!-- CALIFICACIÓN MATERIA-->
+                <Grid Grid.Row="3"
+                      RowDefinitions=".8*,.2*"
+                      ColumnDefinitions=".7*,.3*">
+                    
+                    <Label
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Text="Calificación"
+                        TextColor="White"
+                        FontSize="30"
+                        FontFamily="CaviarBold"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        WidthRequest="200"
+                        HeightRequest="30"/>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{Binding Materia.CalMateria}"
+                        TextColor="White"
+                        FontSize="30"
+                        FontFamily="CaviarBold"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        WidthRequest="100"
+                        HeightRequest="30"/>
+                    
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        x:Name="estado"
+                        Text="{Binding Materia.Estado}"
+                        TextColor="White"
+                        FontSize="15"
+                        FontFamily="CaviarBold"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        WidthRequest="150"
+                        HeightRequest="30"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage>
+
+
+    <ContentPage
+    Title="SEMESTRE" 
+    IconImageSource="libros.png">
+
+        <ContentPage.BindingContext>
+            <vm:SemestreViewModel />
+        </ContentPage.BindingContext>
+
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="White"/>
+                    <GradientStop Offset="0.50" Color="#ff6969"/>
+                    <GradientStop Offset="0.75" Color="#e2324e"/>
+                    <GradientStop Offset="1" Color="#d51942"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid Margin="25" 
+              RowDefinitions=".15*,.30*,.55*,.35*">
+
+                <!-- MATERIA -->
+                <Entry
+                Grid.Row="0"
+                Text="{Binding Semestre.Nombre}"
+                FontSize="35" 
+                FontFamily="PieHeight" 
+                FontAttributes="Bold" 
+                TextColor="#002a32"
+                Placeholder="Materia" 
+                PlaceholderColor="#002a32"
+                HorizontalTextAlignment="Center" 
+                HorizontalOptions="Center"  
+                VerticalOptions="Start" 
+                WidthRequest="250"
+                TextChanged="nomSemestreChanged"/>
+
+                <!-- PARCIALES -->
+                <Grid Grid.Row="1"
+                  RowDefinitions=".33*,.33*,.33*"
+                  ColumnDefinitions=".20*,.30*,.30*">
+                    <!-- Parcial 1 -->
+                    <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Parcial 1"
+                    TextColor="#002a32"
+                    FontSize="20"
+                    FontFamily="CaviarBold"
+                    FontAttributes="Bold"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="90"
+                    HeightRequest="50"/>
+
+                    <!-- Valor Parcial 1 -->
+                    <Frame 
+                    Grid.Row="0" 
+                    Grid.Column="1"
+                    CornerRadius="20"
+                    Opacity="0.3"
+                    HeightRequest="45" 
+                    WidthRequest="120" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsClippedToBounds="True"
+                    Margin="30,0,0,0">
+                    </Frame>
+
+                    <Entry 
+                    Grid.Row="0" 
+                    Grid.Column="1"
+                    Text="{Binding Semestre.ValorP1}"
+                    TextColor="#002a32"
+                    FontSize="15" 
+                    FontFamily="OpenSans"
+                    FontAttributes="Bold"
+                    Placeholder="Valor"
+                    PlaceholderColor="White"  
+                    HorizontalTextAlignment="Center"
+                    WidthRequest="70"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextChanged="vaP1Changed"
+                    Margin="30,0,0,0"/>
+
+                    <!-- Calificación Parcial 1 -->
+                    <Frame 
+                    Grid.Row="0" 
+                    Grid.Column="2"
+                    CornerRadius="20"
+                    Opacity="0.3"
+                    HeightRequest="45" 
+                    WidthRequest="120" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsClippedToBounds="True"
+                    Margin="30,0,0,0">
+                    </Frame>
+
+                    <Entry 
+                    Grid.Row="0" 
+                    Grid.Column="2"
+                    Text="{Binding Semestre.CalificacionP1}"
+                    TextColor="#002a32"
+                    FontSize="15" 
+                    FontFamily="OpenSans"
+                    FontAttributes="Bold"
+                    Placeholder="Cal"
+                    PlaceholderColor="White"  
+                    HorizontalTextAlignment="Center"
+                    WidthRequest="70"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextChanged="calP1Changed"
+                    Margin="35,0,0,0"/>
+
+                    <!-- Parcial 2 -->
+                    <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Parcial 2"
+                    TextColor="#002a32"
+                    FontSize="20"
+                    FontFamily="CaviarBold"
+                    FontAttributes="Bold"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="90"
+                    HeightRequest="50"/>
+
+                    <!-- Valor Parcial 2 -->
+                    <Frame 
+                    Grid.Row="1" 
+                    Grid.Column="1"
+                    CornerRadius="20"
+                    Opacity="0.3"
+                    HeightRequest="45" 
+                    WidthRequest="120" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsClippedToBounds="True"
+                    Margin="30,0,0,0">
+                    </Frame>
+
+                    <Entry 
+                    Grid.Row="1" 
+                    Grid.Column="1"
+                    Text="{Binding Semestre.ValorP2}"
+                    TextColor="#002a32"
+                    FontSize="15" 
+                    FontFamily="OpenSans"
+                    FontAttributes="Bold"
+                    Placeholder="Valor"
+                    PlaceholderColor="White"  
+                    HorizontalTextAlignment="Center"
+                    WidthRequest="70"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextChanged="vaP2Changed"
+                    Margin="30,0,0,0"/>
+
+                    <!-- Calificación Parcial 2 -->
+                    <Frame 
+                    Grid.Row="1" 
+                    Grid.Column="2"
+                    CornerRadius="20"
+                    Opacity="0.3"
+                    HeightRequest="45" 
+                    WidthRequest="120" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsClippedToBounds="True"
+                    Margin="30,0,0,0">
+                    </Frame>
+
+                    <Entry 
+                    Grid.Row="1" 
+                    Grid.Column="2"
+                    Text="{Binding Semestre.CalificacionP2}"
+                    TextColor="#002a32"
+                    FontSize="15" 
+                    FontFamily="OpenSans"
+                    FontAttributes="Bold"
+                    Placeholder="Cal"
+                    PlaceholderColor="White"  
+                    HorizontalTextAlignment="Center"
+                    WidthRequest="70"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextChanged="calP2Changed"
+                    Margin="35,0,0,0"/>
+
+                    <!-- Parcial 3 -->
+                    <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Parcial 3"
+                    TextColor="#002a32"
+                    FontSize="20"
+                    FontFamily="CaviarBold"
+                    FontAttributes="Bold"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="90"
+                    HeightRequest="50"/>
+
+                    <!-- Valor Parcial 3 -->
+                    <Frame 
+                    Grid.Row="2" 
+                    Grid.Column="1"
+                    CornerRadius="20"
+                    Opacity="0.3"
+                    HeightRequest="45" 
+                    WidthRequest="120" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsClippedToBounds="True"
+                    Margin="30,0,0,0">
+                    </Frame>
+
+                    <Entry 
+                    Grid.Row="2" 
+                    Grid.Column="1"
+                    Text="{Binding Semestre.ValorP3}"
+                    TextColor="#002a32"
+                    FontSize="15" 
+                    FontFamily="OpenSans"
+                    FontAttributes="Bold"
+                    Placeholder="Valor"
+                    PlaceholderColor="White"  
+                    HorizontalTextAlignment="Center"
+                    WidthRequest="70"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextChanged="vaP3Changed"
+                    Margin="30,0,0,0"/>
+                </Grid>
+
+                <!-- PARCIAL 3 -->
+                <Grid Grid.Row="2"
+                  RowDefinitions=".50*,.35*,.35"
+                  ColumnDefinitions=".50*,.50*">
+                    <!-- Imagen-->
+                    <Frame 
+                    Grid.Row="0" 
+                    Grid.ColumnSpan="2"
+                    CornerRadius="40" 
+                    BackgroundColor="White" 
+                    Opacity="0.4"
+                    HeightRequest="150" 
+                    WidthRequest="350" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start" 
+                    IsClippedToBounds="True"
+                    Margin="10,20,10,10">
+
+                        <BoxView BackgroundColor="White"/>
+
+                    </Frame>
+
+                    <Image 
+                    Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    Source="img2.png"
+                    Aspect="Fill"  
+                    HeightRequest="170" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    Margin="10,50,10,10"/>
+
+                    <!-- Sacar 6 -->
+                    <Label
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Text="Para obtener Final = 6"
+                     TextColor="White"
+                     FontSize="20"
+                     FontFamily="CaviarBold"
+                     FontAttributes="Bold"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center"
+                     WidthRequest="160"
+                     HeightRequest="50"/>
+
+                    <Frame 
+                    Grid.Row="2" 
+                    Grid.Column="0"
+                    CornerRadius="20"
+                    Opacity="0.3"
+                    HeightRequest="45" 
+                    WidthRequest="150" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsClippedToBounds="True">
+                    </Frame>
+
+                    <Label
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     Text="{Binding CalificacionPara6}"
+                     TextColor="#002a32"
+                     FontSize="20"
+                     FontFamily="CaviarBold"
+                     FontAttributes="Bold"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center"
+                     WidthRequest="100"
+                     HeightRequest="50"/>
+
+                    <!-- Sacar 10 -->
+                    <Label
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Text="Para obtener Final = 10"
+                     TextColor="White"
+                     FontSize="20"
+                     FontFamily="CaviarBold"
+                     FontAttributes="Bold"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center"
+                     WidthRequest="150"
+                     HeightRequest="50"/>
+
+                    <Frame 
+                    Grid.Row="2" 
+                    Grid.Column="1"
+                    CornerRadius="20"
+                    Opacity="0.3"
+                    HeightRequest="45" 
+                    WidthRequest="160" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    IsClippedToBounds="True">
+                    </Frame>
+
+                    <Label
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     Text="{Binding CalificacionPara10}"
+                     TextColor="#002a32"
+                     FontSize="20"
+                     FontFamily="CaviarBold"
+                     FontAttributes="Bold"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center"
+                     WidthRequest="100"
+                     HeightRequest="50"/>
+                </Grid>
+
+                <Grid Grid.Row="3"
+                  RowDefinitions=".8*,.2*"
+                    Margin="10,30,10,0">
+
+                    <Label
+                     Grid.Row="0"
+                     Text="{Binding Mensaje}"
+                     TextColor="White"
+                     FontSize="40"
+                     FontFamily="CaviarBold"
+                     FontAttributes="Bold"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="Center"
+                     WidthRequest="350"
+                     HeightRequest="100"/>
+
+                    <Label
+                    Grid.Row="1"
+                    Text="{Binding Semestre.Estado}"
+                    TextColor="White"
+                    FontSize="15"
+                    FontFamily="CaviarBold"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="350"
+                    HeightRequest="50"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage>
+
+</TabbedPage>

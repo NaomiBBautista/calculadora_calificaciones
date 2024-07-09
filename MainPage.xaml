@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TDMPW_3P_EX.MainPage"
+             BarBackgroundColor="White"
+             BarTextColor="#0C1844"
+             UnselectedTabColor="#C80036"
+             SelectedTabColor="#c80036">
+    <!-- Colores
+        Blanco: #FFF5E1
+        Rosa: #FF6969
+        Rojo: #C80036
+        Azul: #0C1844
+        Cambiar NavigationPage, Page-->
+
+    <ContentPage
+        Title="INICIO" 
+        IconImageSource="inicio.png" 
+        BackgroundColor="#f7f2f8">
+        
+        <ScrollView>
+            <VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>
